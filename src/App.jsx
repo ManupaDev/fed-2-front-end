@@ -1,14 +1,12 @@
-import Button from "./Button";
-import Manupa from "./Manupa";
+import Navigation from "./components/Navigation/Navigation";
+import Footer from "./components/Footer/Footer";
+import { Button } from "@/components/ui/button";
+
 const App = () => {
   return (
     <>
-      <h1>Hello World</h1>      
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-      <Manupa />
+      <Navigation />
+      <Button variant={"outline"}>Click me</Button>
     </>
   );
 };
