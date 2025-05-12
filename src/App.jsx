@@ -2,6 +2,7 @@ import CasualInspirations from "./components/CasualInspirations";
 import HeroGrid from "./components/HeroGrid";
 import Navigation from "./components/Navigation";
 import TrendingSection from "./components/TrendingSection";
+import TestComponent from "./components/TestComponent";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <HeroGrid />
         <CasualInspirations />
         <TrendingSection />
+        <TestComponent />
       </main>
     </>
   );

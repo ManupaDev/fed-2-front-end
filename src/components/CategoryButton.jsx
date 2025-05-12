@@ -1,7 +1,14 @@
-function CategoryButton({ category }) {
+import { cn } from "@/lib/utils";
+
+function CategoryButton({ category, selectedCategoryId, onClick }) {
   return (
     <button
-      className={`border rounded-full px-4 py-2 transition-colors border-black text-black hover:bg-gray-100`}
+      onClick={onClick}
+      className={cn("border rounded-full px-4 py-2 transition-colors", {
+        "bg-black text-white": selectedCategoryId === category._id,
+        "bg-white  border-black text-black":
+          selectedCategoryId !== category._id,
+      })}
     >
       {category.name}
     </button>

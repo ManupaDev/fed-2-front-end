@@ -237,6 +237,12 @@ const products = [
 
 const categories = [
   {
+    _id: "ALL",
+    name: "All",
+    slug: "all",
+    __v: 0,
+  },
+  {
     _id: "67dee99f12d36efdd1027b40",
     name: "Shoes",
     slug: "shoes",
