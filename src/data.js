@@ -1,7 +1,7 @@
 const products = [
   {
     _id: "67def6e42b2c146578729f60",
-    categoryId: "67dee9c012d36efdd1027b43",
+    categoryId: "67dee9c012d36efdd1027b43", 
     colorId: "67deec8e2b2c146578729f2f",
     image:
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/f93fec70-da18-44f9-a18d-27a5edd24037/M+NK+DF+FORM+7IN+UL+SHORT.png",
