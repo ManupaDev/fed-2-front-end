@@ -1,4 +1,21 @@
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "@/lib/features/cartSlice";
+import { Button } from "./ui/button";
+
 function SimpleProductCard(props) {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        _id: props._id,
+        name: props.name,
+        price: props.price,
+        image: props.image,
+        description: props.description,
+      })
+    );
+  };
 
   return (
     <div key={props.product._id}>
@@ -16,6 +33,7 @@ function SimpleProductCard(props) {
         <span className="text-base sm:text-lg md:text-xl block">
           ${props.product.price}
         </span>
+        <Button onClick={handleAddToCart}>Add To Cart</Button>
       </div>
     </div>
   );

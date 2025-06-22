@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useGetProductsQuery } from "@/lib/api";
 
 function TrendingSection() {
-  const { data: products, isLoading, isError, error } = useGetProductsQuery();
+  // const { data: products, isLoading, isError, error } = useGetProductsQuery();
 
   const [selectedCategoryId, setSelectedCategoryId] = useState("ALL");
   const filteredProducts =
