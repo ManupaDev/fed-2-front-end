@@ -1,4 +1,9 @@
+import { Button } from "@/components/ui/button";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/lib/features/cartSlice";
+
 function SimpleProductCard(props) {
+  const dispatch = useDispatch();
 
   return (
     <div key={props.product._id}>
@@ -16,6 +21,23 @@ function SimpleProductCard(props) {
         <span className="text-base sm:text-lg md:text-xl block">
           ${props.product.price}
         </span>
+      </div>
+      <div>
+        <Button
+          className={"w-full mt-2"}
+          onClick={() =>
+            dispatch(
+              addToCart({
+                _id: props.product._id,
+                name: props.product.name,
+                price: props.product.price,
+                image: props.product.image,
+              })
+            )
+          }
+        >
+          Add To Cart
+        </Button>
       </div>
     </div>
   );
