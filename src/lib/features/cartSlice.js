@@ -8,7 +8,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {
+    addToCart: (state, action) => { // Immer
       const newItem = action.payload;
       const foundItem = state.cartItems.find(
         (el) => el.product._id === newItem._id
