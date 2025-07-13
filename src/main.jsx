@@ -13,6 +13,7 @@ import ShopPage from "./pages/shop.page.jsx";
 import RootLayout from "./layouts/root.layout.jsx";
 import CartPage from "./pages/cart.page";
 import CheckoutPage from "./pages/checkout.page";
+import CreateProductPage from "./pages/admin/create-product-page";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,6 +28,7 @@ createRoot(document.getElementById("root")).render(
               <Route path="checkout" element={<CheckoutPage />} />
             </Route>
           </Route>
+          <Route path="/admin/products/create" element={<CreateProductPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
         </Routes>
