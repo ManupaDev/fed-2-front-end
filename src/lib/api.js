@@ -10,9 +10,16 @@ export const Api = createApi({
     getAllProducts: build.query({
       query: () => `/products`,
     }),
+    createOrder: build.mutation({
+      query: (order) => ({
+        url: "/orders",
+        method: "POST",
+        body: order,
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllProductsQuery } = Api;
+export const { useGetAllProductsQuery, useCreateOrderMutation } = Api;

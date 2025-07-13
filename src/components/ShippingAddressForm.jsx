@@ -1,7 +1,5 @@
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { Input } from "./ui/input";
 
 import {
   Form,
@@ -13,8 +11,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+import { useCreateOrderMutation } from "@/lib/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 import { z } from "zod";
 
 const shippingAddresFormSchema = z.object({
@@ -35,10 +35,22 @@ function ShippingAddressForm() {
     },
   });
 
-  function onSubmit(values) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  const cart = useSelector((state) => state.cart.cartItems);
+  const [createOrder, { isLoading }] = useCreateOrderMutation();
+  console.log(cart);
+
+  async function onSubmit(values) {
+    try {
+      await createOrder({
+        shippingAddress: values,
+        orderItems: cart.map((item) => ({
+          productId: item.product._id,
+          quantity: item.quantity,
+        })),
+      }).unwrap();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

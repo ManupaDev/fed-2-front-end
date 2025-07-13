@@ -6,9 +6,9 @@ import ShippingAddressForm from "@/components/ShippingAddressForm";
 function CheckoutPage() {
   const cart = useSelector((state) => state.cart.cartItems);
 
-  // if (cart.length === 0) {
-  //   return <Navigate to="/" />;
-  // }
+  if (cart.length === 0) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <main className="px-16 min-h-screen py-8">
