@@ -14,6 +14,8 @@ import RootLayout from "./layouts/root.layout.jsx";
 import CartPage from "./pages/cart.page";
 import CheckoutPage from "./pages/checkout.page";
 import ProtectedLayout from "./layouts/protected.layout";
+import CreateProductPage from "./pages/create-product-page";
+import AdminProtectedLayout from "./layouts/admin-protected.layout";
 
 import { ClerkProvider } from "@clerk/clerk-react";
 
@@ -37,6 +39,14 @@ createRoot(document.getElementById("root")).render(
                 <Route path="cart" element={<CartPage />} />
                 <Route element={<ProtectedLayout />}>
                   <Route path="checkout" element={<CheckoutPage />} />
+                </Route>
+              </Route>
+              <Route element={<ProtectedLayout />}>
+                <Route element={<AdminProtectedLayout />}>
+                  <Route
+                    path="/admin/products/create"
+                    element={<CreateProductPage />}
+                  />
                 </Route>
               </Route>
             </Route>

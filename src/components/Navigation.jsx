@@ -72,6 +72,9 @@ export default function Navigation() {
               );
             })}
           </nav>
+          <div>
+            <Link to="/admin/products/create">Create Product</Link>
+          </div>
 
           {/* Icons */}
           <div className="flex items-center space-x-4">

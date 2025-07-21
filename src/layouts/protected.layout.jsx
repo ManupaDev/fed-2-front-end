@@ -12,7 +12,7 @@ const ProtectedLayout = () => {
     return <Navigate to="/sign-in" />;
   }
 
-  console.log(user);
+  // console.log(user);
 
   return <Outlet />;
 };
