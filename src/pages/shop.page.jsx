@@ -1,4 +1,6 @@
 import { useGetAllProductsQuery } from "@/lib/api";
+import { useParams } from "react-router";
+import ProductSearchForm from "@/components/ProductSearchForm";
 
 function ShopPage() {
   const {
@@ -8,20 +10,19 @@ function ShopPage() {
     error,
   } = useGetAllProductsQuery();
 
+  const { category } = useParams();
+  console.log(category);
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
 
   console.log(products);
-  
 
   return (
-    <main>
-      <h1>Shop Page</h1>
-      {/* <p>{category}</p> */}
-      <div>{isLoading ? "Loading" : "Done"}</div>
-      <div>{error}</div>
-      <div>{JSON.stringify(products)}</div>
+    <main className="px-4 lg:px-16 min-h-screen py-8">
+      <h2 className="text-4xl font-bold">Shop</h2>
+      <div className="mt-4"></div>
     </main>
   );
 }

@@ -27,6 +27,9 @@ export const Api = createApi({
     getAllProducts: build.query({
       query: () => `/products`,
     }),
+    getProductsBySearch: build.query({
+      query: (query) => `/products/search?search=${query}`,
+    }),
     getAllCategories: build.query({
       query: () => `/categories`,
     }),
@@ -49,4 +52,4 @@ export const Api = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllProductsQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllCategoriesQuery } = Api;
+export const { useGetAllProductsQuery, useGetProductsBySearchQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllCategoriesQuery } = Api;

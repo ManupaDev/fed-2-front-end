@@ -34,7 +34,7 @@ createRoot(document.getElementById("root")).render(
           <Routes>
             <Route element={<RootLayout />}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/shop">
+              <Route path="/shop" element={<ShopPage />}>
                 <Route path=":category" element={<ShopPage />} />
                 <Route path="cart" element={<CartPage />} />
                 <Route element={<ProtectedLayout />}>

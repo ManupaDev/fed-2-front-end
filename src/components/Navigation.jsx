@@ -4,6 +4,7 @@ import { Menu, X, ShoppingBag, Search, User } from "lucide-react";
 import { useSelector } from "react-redux";
 // import { useSelector } from "react-redux";
 import { SignedIn, UserButton, SignedOut } from "@clerk/clerk-react";
+import ProductSearchForm from "./ProductSearchForm";
 
 export default function Navigation() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -72,15 +73,10 @@ export default function Navigation() {
               );
             })}
           </nav>
-          <div>
-            <Link to="/admin/products/create">Create Product</Link>
-          </div>
 
           {/* Icons */}
           <div className="flex items-center space-x-4">
-            <button aria-label="Search" className="p-1">
-              <Search size={20} />
-            </button>
+            <ProductSearchForm />
             <Link
               to="/shop/cart"
               aria-label="Shopping Bag"
@@ -117,7 +113,7 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden fixed top-16 left-4 right-4 bg-white z-10">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
             {[
               { path: "/shop/shoes", label: "Shoes" },
