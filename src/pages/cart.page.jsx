@@ -5,6 +5,8 @@ import CartItem from "@/components/CartItem";
 
 function CartPage() {
   const cart = useSelector((state) => state.cart.cartItems);
+  console.log(cart);
+  
 
   return (
     <main className="px-16 min-h-screen py-8">

@@ -16,6 +16,7 @@ import CheckoutPage from "./pages/checkout.page";
 import ProtectedLayout from "./layouts/protected.layout";
 import CreateProductPage from "./pages/create-product-page";
 import AdminProtectedLayout from "./layouts/admin-protected.layout";
+import PaymentPage from "./pages/payment.page";
 
 import { ClerkProvider } from "@clerk/clerk-react";
 
@@ -34,11 +35,13 @@ createRoot(document.getElementById("root")).render(
           <Routes>
             <Route element={<RootLayout />}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/shop" element={<ShopPage />}>
-                <Route path=":category" element={<ShopPage />} />
+              <Route path="/shop">
+                <Route index element={<ShopPage />} />
                 <Route path="cart" element={<CartPage />} />
+                <Route path=":category" element={<ShopPage />} />
                 <Route element={<ProtectedLayout />}>
                   <Route path="checkout" element={<CheckoutPage />} />
+                  <Route path="payment" element={<PaymentPage />} />
                 </Route>
               </Route>
               <Route element={<ProtectedLayout />}>

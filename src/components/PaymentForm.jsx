@@ -1,10 +1,8 @@
-import { useEffect } from "react";
-import { useCreateCheckoutSessionMutation } from "../lib/api";
-import { loadStripe } from "@stripe/stripe-js";
 import {
   EmbeddedCheckout,
   EmbeddedCheckoutProvider,
 } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { useCallback } from "react";
 
 const STRIPE_PUBLISHABLE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;

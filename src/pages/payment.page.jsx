@@ -1,11 +1,11 @@
 import CartItem from "@/components/CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router";
-import CheckoutForm from "./CheckoutForm";
 import { useSearchParams } from "react-router";
+import PaymentForm from "@/components/PaymentForm";
 
 function PaymentPage() {
-  const cart = useSelector((state) => state.cart.value);
+  const cart = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const orderId = searchParams.get("orderId");
@@ -33,7 +33,7 @@ function PaymentPage() {
       </div>
 
       <div className="mt-4">
-        <CheckoutForm orderId={orderId} />
+        <PaymentForm orderId={orderId} />
       </div>
     </main>
   );
