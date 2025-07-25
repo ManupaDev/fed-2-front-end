@@ -1,5 +1,7 @@
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 export const putImage = async ({ file }) => {
-  const res = await fetch(`http://localhost:8000/api/products/images`, {
+  const res = await fetch(`${BASE_URL}/products/images`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

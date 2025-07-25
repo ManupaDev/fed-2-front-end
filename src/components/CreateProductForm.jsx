@@ -22,10 +22,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { Textarea } from "./ui/textarea";
 
 const createProductFormSchema = z.object({
   categoryId: z.string().min(1),
   name: z.string().min(1),
+  description: z.string().min(1),
   image: z.string().min(1),
   stock: z.number(),
   price: z.number().nonnegative(),
@@ -41,7 +43,7 @@ function CreateProductForm({ categories }) {
   const onSubmit = async (values) => {
     try {
       console.log(values);
-      
+
       // await createProduct(values).unwrap();
     } catch (error) {
       console.log(error);
@@ -60,9 +62,9 @@ function CreateProductForm({ categories }) {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Category</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select  onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger className={"w-full"}>
                     <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
                 </FormControl>
@@ -86,6 +88,19 @@ function CreateProductForm({ categories }) {
               <FormLabel>Product Name</FormLabel>
               <FormControl>
                 <Input placeholder="Denim" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="description"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Description</FormLabel>
+              <FormControl>
+                <Textarea placeholder="Write a description" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
